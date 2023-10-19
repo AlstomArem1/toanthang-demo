@@ -93,7 +93,7 @@
                     </div>
                 </div>
             </div>
-            <form action="post" action="{{ route('place-order') }}">
+            <form method="post" action="{{ route('messcontact') }}">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <input type="text" placeholder="Your name" value="{{ Auth::user()->name }}">
@@ -102,12 +102,12 @@
                         <input type="text" placeholder="Your Email" value="{{ Auth::user()->email }}">
                     </div>
                     <div class="col-lg-12 text-center">
-                        <textarea name="note" placeholder="Your message"></textarea>
-                        <button type="submit" class="site-btn">SEND MESSAGE</button>
-                        @csrf
+                        <textarea name="note" type="text" placeholder="Your message"></textarea>
+                        <button type="submit" class="site-btn"><a href="{{ route('send-sms') }}">SEND MESSAGE</a></button>
+
                     </div>
                 </div>
-
+                @csrf
             </form>
         </div>
     </div>

@@ -1,4 +1,3 @@
-<h1>Leave Message</h1>
+<h1>Contact</h1>
 <div>Name : {{ $user->name }}</div>
-<div>Email: {{ $user->email }}</div>
-<div>Note : {{ $orders->note }}</div>
+<div>MessageContact : {{ $orders->note }}</div>

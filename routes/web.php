@@ -119,7 +119,27 @@ Route::middleware('auth')->group(function(){
 
     Route::get('vnpay-callback', [OrderController::class, 'vnpayCallback'])->name('vnpay-callback');
 
+    Route::get('test-send-sms', function(){
+        // Your Account SID and Auth Token from console.twilio.com
+        $sid = env('TWILIO_ACCOUNT_SID');
+        $token = env('TWILIO_AUTH_TOKEN');
+        $client = new Twilio\Rest\Client($sid, $token);
+
+        // Use the Client to make requests to the Twilio REST API
+        $client->messages->create(
+            // The number you'd like to send the message to
+            '+84388609749',
+            [
+                // A Twilio phone number you purchased at https://console.twilio.com
+                'from' => env('TWILIO_PHONE_NUMBER'),
+                // The body of the text message you'd like to send
+                'body' => "Test Send SMS"
+            ]
+        );
+    })->name('send-sms');
 
 });
+
+
 
 

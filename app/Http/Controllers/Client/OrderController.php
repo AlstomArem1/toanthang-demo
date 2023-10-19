@@ -48,6 +48,8 @@ class OrderController extends Controller
             $order->total = $total;
             $order->save();//update id = 20
 
+
+
             // $orderPaymentMethod = new OrderPaymentMethod
             //Elaquent xet phpadmin =>http.checkout > orders
              //Eloquent - 1
